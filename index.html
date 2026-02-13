@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Adil Usman · full‑stack dart · dark portfolio CV</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Space Grotesk (dart weight) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- DARK THEME — "DART" EDITION ---------- 
+       Deep charcoal base, electric cyan (#2ef7e0) as primary,
+       subtle glassmorphism, smooth interactive states.
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0b0f16;
+      background-image: radial-gradient(circle at 25% 15%, rgba(46, 247, 224, 0.05) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(0, 180, 220, 0.06) 0%, transparent 40%);
+      font-family: 'Inter', sans-serif;
+      color: #edf2fb;
+      line-height: 1.55;
+      padding: 2.2rem 1.8rem;
+    }
+
+    .container {
+      max-width: 1340px;
+      margin: 0 auto;
+      background: rgba(12, 18, 28, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(46, 247, 224, 0.18);
+      border-radius: 56px;
+      padding: 2.8rem 2.8rem;
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(46, 247, 224, 0.08) inset;
+    }
+
+    /* ----- DART palette ----- */
+    :root {
+      --dart-bg: #0c121c;
+      --dart-surface: #131b26;
+      --dart-surface-lighter: #1e2a36;
+      --dart-border: #2a3745;
+      --accent: #2ef7e0;        /* electric cyan */
+      --accent-glow: #00ffe8;
+      --accent-dim: #1c4c53;
+      --accent-soft: rgba(46, 247, 224, 0.1);
+      --text-primary: #f0f9fe;
+      --text-secondary: #b3d0dd;
+      --text-muted: #8ba0ad;
+      --gradient-1: linear-gradient(145deg, #1e2e3b, #0f1a22);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 2px solid var(--accent-dim);
+      padding-bottom: 0.6rem;
+      color: white;
+    }
+    h2 i {
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(46,247,224,0.5);
+    }
+
+    /* ----- identity header (darker but readable) ----- */
+    .identity {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.2rem;
+    }
+
+    .name-title h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.0;
+      background: linear-gradient(145deg, #ffffff, #c6ecff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.03em;
+      text-shadow: 0 0 12px rgba(46,247,224,0.3);
+    }
+
+    .name-title .tagline {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(145deg, #2ef7e0, #82e9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ----- QR / live link (dark glass) ----- */
+    .qr-eco {
+      background: rgba(18, 28, 40, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid rgba(46, 247, 224, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+    }
+    .qr-placeholder {
+      width: 70px;
+      height: 70px;
+      background: rgba(46, 247, 224, 0.08);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 10px rgba(46,247,224,0.2);
+    }
+    .qr-placeholder i {
+      font-size: 2.4rem;
+      color: var(--accent);
+    }
+    .qr-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .qr-text strong {
+      color: white;
+      display: block;
+      font-size: 1.05rem;
+    }
+    .qr-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent);
+    }
+    .qr-text a:hover {
+      text-shadow: 0 0 6px var(--accent);
+    }
+
+    /* ----- contact strip (darker) ----- */
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 2rem 0 1.5rem;
+      padding: 1.2rem 0 0.2rem;
+      border-top: 1px solid rgba(46,247,224,0.15);
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dart-surface);
+      padding: 0.5rem 1.2rem 0.5rem 0.8rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.04);
+      color: var(--text-primary);
+      transition: 0.15s;
+    }
+    .contact-item i {
+      background: rgba(46,247,224,0.1);
+      padding: 8px;
+      border-radius: 50%;
+      color: var(--accent);
+      width: 34px;
+      text-align: center;
+    }
+    .contact-item a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    /* ----- evolution trail (darker, cyan accents) ----- */
+    .evolution-trail {
+      background: var(--dart-surface);
+      padding: 1.8rem 2.2rem;
+      border-radius: 48px;
+      margin: 2rem 0 2rem;
+      border: 1px solid rgba(46, 247, 224, 0.15);
+      box-shadow: 0 12px 0 #060a10;
+    }
+    .evolution-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1.6rem;
+      color: white;
+    }
+    .evolution-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.3rem;
+      align-items: baseline;
+    }
+    .step {
+      display: inline-flex;
+      align-items: baseline;
+      background: #1f2d38;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #e1f7f2;
+      border: 1px solid rgba(46,247,224,0.2);
+    }
+    .step i {
+      margin-right: 8px;
+      color: var(--accent);
+    }
+    .arrow {
+      font-size: 1.7rem;
+      color: var(--accent);
+      opacity: 0.7;
+      margin: 0 0.1rem;
+    }
+
+    /* ----- skills matrix (cards with depth) ----- */
+    .skill-category {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin: 2.2rem 0 2rem;
+    }
+    .skill-card {
+      background: var(--dart-surface);
+      border-radius: 36px;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: all 0.2s;
+      box-shadow: 0 8px 0 #080e14;
+    }
+    .skill-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 12px 0 #060a10, 0 0 20px rgba(46,247,224,0.15);
+    }
+    .skill-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+    }
+    .skill-badge {
+      background: rgba(46,247,224,0.15);
+      color: var(--accent);
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid rgba(46,247,224,0.3);
+    }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .skill-tag {
+      background: #1d2b33;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #d6f0f5;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+
+    /* ----- PROJECT GRID (dark, bold) ----- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+    .project-item {
+      background: #101a24;
+      border-radius: 32px;
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(46,247,224,0.1);
+      box-shadow: 0 10px 0 #070c12;
+      transition: all 0.2s;
+    }
+    .project-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 0 #070c12, 0 12px 28px rgba(0,0,0,0.6);
+    }
+    .project-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+    .project-title i {
+      color: var(--accent);
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 1.2rem;
+    }
+    .project-stack span {
+      background: #1c2b36;
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #bef2ed;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .project-desc {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+    .highlight {
+      background: rgba(46,247,224,0.2);
+      padding: 0.1rem 0.3rem;
+      font-weight: 600;
+      color: white;
+      border-radius: 8px;
+    }
+
+    /* ----- USP SECTION (darker but glow) ----- */
+    .usp-section {
+      background: linear-gradient(165deg, #0a1720, #0f1e2a);
+      border-radius: 48px;
+      padding: 2.2rem 2.5rem;
+      margin: 3rem 0 2rem;
+      border: 1px solid rgba(46,247,224,0.3);
+      box-shadow: 0 0 30px rgba(46,247,224,0.07);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .usp-text {
+      max-width: 70%;
+    }
+    .usp-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      display: flex;
+      gap: 14px;
+      color: white;
+    }
+    .usp-text p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      color: #d5ecf0;
+    }
+    .usp-icon {
+      font-size: 3.8rem;
+      color: var(--accent);
+      background: rgba(46,247,224,0.05);
+      padding: 0.8rem 1.4rem;
+      border-radius: 100px;
+      border: 1px dashed var(--accent);
+    }
+
+    /* ----- summary, competencies (darker surfaces) ----- */
+    .summary-block {
+      background: #0f1921;
+      padding: 2.2rem;
+      border-radius: 40px;
+      margin: 2rem 0 1.5rem;
+      border: 1px solid rgba(46,247,224,0.1);
+    }
+    .competency-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.5rem;
+      margin-top: 1.3rem;
+    }
+    .competency-list li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .competency-list i {
+      color: var(--accent);
+    }
+
+    /* ----- LINK STYLES (all working, all dark) ----- */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.1s;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .pill-icon {
+      background: rgba(46,247,224,0.08);
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      border: 1px solid rgba(46,247,224,0.4);
+    }
+
+    hr {
+      border: 0.5px solid rgba(46,247,224,0.2);
+      margin: 2.2rem 0 1.5rem;
+    }
+
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    .footer-note a {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .container { padding: 1.8rem; }
+      .name-title h1 { font-size: 2.6rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .usp-text { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ********** DARK IDENTITY — HOOK WITH LIVE LINKS ********** -->
+  <div class="identity">
+    <div class="name-title">
+      <h1>Adil Usman</h1>
+      <span class="tagline">◈ full‑stack problem solver · php / react</span>
+      <div style="display: flex; gap: 16px; margin-top: 1rem;">
+        <span class="pill-icon"><i class="fas fa-shield-alt" style="margin-right: 6px;"></i>reliable core</span>
+        <span class="pill-icon"><i class="fas fa-bolt" style="margin-right: 6px;"></i>real‑time ready</span>
+        <span class="pill-icon"><i class="fas fa-robot" style="margin-right: 6px;"></i>AI‑curious</span>
+      </div>
+    </div>
+    <!-- QR / live link — fully clickable, change href later -->
+    <div class="qr-eco">
+      <div class="qr-placeholder">
+        <i class="fas fa-qrcode"></i>
+      </div>
+      <div class="qr-text">
+        <strong>Live work</strong>
+        <a href="https://adil-usman.github.io/showcase/" target="_blank">Live-projects</a> 
+        <span style="display:block; font-size:0.8rem; margin-top:5px;">
+          <i class="fas fa-arrow-up-right-from-square"></i> 
+          <a href="https://github.com/Adil-Usman" target="_blank">github-profile</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ********** CONTACT — ALL WORKING LINKS (YOU CAN EDIT) ********** -->
+  <div class="contact-strip">
+    <span class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:adil.u@fullstack.dev">adilakylaaa@gmail.com</a></span>
+    <span class="contact-item"><i class="fas fa-map-pin"></i> remote · pk</span>
+    <span class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/Adil-Usman" target="_blank">adil-codes</a></span>
+    <span class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/adil-usman-61851439a/" target="_blank">adil-usman-linkdin</a></span>
+    <span class="contact-item"><i class="fas fa-globe"></i> <a href="https://my-portfolio-lovat-nine-x5hkldb1hz.vercel.app/" target="_blank">Portfolio</a></span>
+  </div>
+
+  <!-- ********** STACK EVOLUTION — DARK TRAIL ********** -->
+  <div class="evolution-trail">
+    <div class="evolution-title">
+      <i class="fas fa-code-fork" style="color: var(--accent); font-size: 2rem;"></i>
+      <span>⚡ stack evolution trajectory</span>
+    </div>
+    <div class="evolution-steps">
+      <span class="step"><i class="fab fa-html5"></i> HTML/CSS</span><span class="arrow">→</span>
+      <span class="step"><i class="fab fa-php"></i> PHP/MySQL</span><span class="arrow">→</span>
+      <span class="step"><i class="fab fa-js"></i> JS/jQuery</span><span class="arrow">→</span>
+      <span class="step"><i class="fas fa-paint-brush"></i> Bootstrap/Tailwind</span><span class="arrow">→</span>
+      <span class="step"><i class="fab fa-react"></i> React/Node</span><span class="arrow">→</span>
+      <span class="step"><i class="fas fa-plug"></i> Socket.IO/AI</span>
+    </div>
+    <p style="margin-top: 1.4rem; color: var(--accent); font-weight: 600; background: rgba(46,247,224,0.1); padding: 0.6rem 1.6rem; border-radius: 60px; display: inline-block; border:1px solid rgba(46,247,224,0.3);">
+      <i class="fas fa-timeline"></i> 2019 • static → 2025 • intelligent real‑time systems
+    </p>
+  </div>
+
+  <!-- ********** MASTERY MATRIX — DEEP DART ********** -->
+  <h2><i class="fas fa-cubes"></i> technical mastery matrix</h2>
+  <div class="skill-category">
+    <div class="skill-card">
+      <h3><i class="fas fa-database"></i> Core Backend <span class="skill-badge">proven</span></h3>
+      <div class="skill-items">
+        <span class="skill-tag">PHP 7/8</span><span class="skill-tag">MySQL</span><span class="skill-tag">Node.js</span>
+        <span class="skill-tag">REST APIs</span><span class="skill-tag">Auth flows</span><span class="skill-tag">RBAC</span>
+      </div>
+      <p style="margin-top: 1.2rem; color: var(--text-secondary);"><i class="fas fa-check" style="color:var(--accent);"></i> custom admin dashboards, session mgmt, DB relations</p>
+    </div>
+    <div class="skill-card">
+      <h3><i class="fas fa-palette"></i> Frontend <span class="skill-badge">responsive</span></h3>
+      <div class="skill-items">
+        <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">Tailwind</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React</span>
+      </div>
+      <p style="margin-top: 1.2rem; color: var(--text-secondary);"><i class="fas fa-check" style="color:var(--accent);"></i> interactive portfolio, UI dashboards, mobile-first</p>
+    </div>
+    <div class="skill-card">
+      <h3><i class="fas fa-bolt"></i> Modern Stack <span class="skill-badge">real-time</span></h3>
+      <div class="skill-items">
+        <span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Socket.IO</span>
+        <span class="skill-tag">Express</span><span class="skill-tag">API int.</span>
+      </div>
+      <p style="margin-top: 1.2rem; color: var(--text-secondary);"><i class="fas fa-check" style="color:var(--accent);"></i> chat apps, low‑latency, event‑driven</p>
+    </div>
+    <div class="skill-card">
+      <h3><i class="fas fa-brain"></i> Emerging <span class="skill-badge">AI-enhanced</span></h3>
+      <div class="skill-items">
+        <span class="skill-tag">AI‑powered</span><span class="skill-tag">LLM APIs</span><span class="skill-tag">smart search</span>
+        <span class="skill-tag">integrations</span>
+      </div>
+      <p style="margin-top: 1.2rem; color: var(--text-secondary);">exploring AI agents + classic web — versatility</p>
+    </div>
+  </div>
+
+  <!-- ********** PROJECT DEEP DIVE – 4 PROJECTS, LIVE LINKS (CHANGE URLS) ********** -->
+  <h2><i class="fas fa-flask"></i> project deep dive — range</h2>
+  <div class="project-grid">
+    <div class="project-item">
+      <div class="project-title"><i class="fas fa-graduation-cap"></i> Role‑Based LMS</div>
+      <div class="project-stack"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>RBAC</span></div>
+      <p class="project-desc"><span class="highlight">authentication middleware</span> & session management. Distinct dashboards for <strong>admin, instructor, student</strong> – single codebase. <a href="https://edulms.free.nf/" style="color:#2ef7e0;">case study →</a></p>
+    </div>
+    <div class="project-item">
+      <div class="project-title"><i class="fas fa-comment-dots"></i> Real‑Time Chat</div>
+      <div class="project-stack"><span>Node.js</span><span>Socket.IO</span><span>React</span></div>
+      <p class="project-desc"><span class="highlight">WebSocket</span> bidirectional, typing indicators, <strong>80% latency reduction</strong>. <a href="https://chaitify--adilakylaaa.replit.app/" target="_blank" style="color:#2ef7e0;">github →</a></p>
+    </div>
+    <div class="project-item">
+      <div class="project-title"><i class="fas fa-cart-shopping"></i> Online Store System</div>
+      <div class="project-stack"><span>PHP</span><span>MySQL</span><span>Tailwind</span></div>
+      <p class="project-desc">Inventory, order history, secure cart. RBAC for customers & admins. <a href="https://b-s-m69s.vercel.app/" style="color:#2ef7e0;">repo →</a></p>
+    </div>
+    <div class="project-item">
+      <div class="project-title"><i class="fas fa-laptop-code"></i> Interactive Portfolio</div>
+      <div class="project-stack"><span>HTML</span><span>CSS</span><span>JS</span><span>GSAP</span></div>
+      <p class="project-desc">Custom micro‑interactions, animations, responsive UI. <a href="https://my-portfolio-lovat-nine-x5hkldb1hz.vercel.app/" target="_blank" style="color:#2ef7e0;">live →</a></p>
+    </div>
+  </div>
+
+  <!-- ********** USP: BEYOND CODE – AI / API / REAL‑TIME ********** -->
+  <div class="usp-section">
+    <div class="usp-text">
+      <h3><i class="fas fa-robot" style="color: #2ef7e0;"></i> beyond code · AI / API fusion</h3>
+      <p>While proficient in LAMP, I engineer at the intersection of classic architecture & intelligent tech — integrating <strong>real‑time data streams</strong> & <strong>AI‑driven APIs</strong>. I turn complex ideas into smart ecosystems.</p>
+      <div style="display: flex; gap: 2.2rem; margin-top: 1.5rem;">
+        <span style="display: flex; gap: 8px; color: #bdecf0;"><i class="fas fa-cloud"></i> API integrations</span>
+        <span style="display: flex; gap: 8px; color: #bdecf0;"><i class="fas fa-microchip"></i> AI features (exploring)</span>
+        <span style="display: flex; gap: 8px; color: #bdecf0;"><i class="fas fa-arrows-spread"></i> real‑time everywhere</span>
+      </div>
+    </div>
+    <div class="usp-icon">
+      <i class="fas fa-arrow-trend-up"></i>
+    </div>
+  </div>
+
+  <!-- ********** FULL‑STACK IDENTITY / CORE COMPETENCIES ********** -->
+  <div class="summary-block">
+    <h2 style="border-bottom: none; padding-bottom: 0;"><i class="fas fa-briefcase"></i> full‑stack identity</h2>
+    <p style="font-size: 1.2rem; font-weight: 400; margin-bottom: 1.8rem; line-height: 1.6; color: #d1ecf0;">Full-stack web developer with practical experience building modern applications from front‑end to backend systems. Proficient in <strong>PHP/MySQL</strong> for robust database-driven features, combined with <strong>React/Node</strong> for interactive, real‑time experiences. Delivered complete authentication, role‑based access, responsive designs, and API integrations.</p>
+    
+    <h3 style="display: flex; gap: 12px; margin: 1.8rem 0 0.8rem; color: white;"><i class="fas fa-cog" style="color:var(--accent);"></i> core competencies</h3>
+    <ul class="competency-list">
+      <li><i class="fas fa-shield-hal"></i> Security: Auth, RBAC, session mgmt</li>
+      <li><i class="fas fa-layer-group"></i> Architecture: MVC, REST APIs, DB design</li>
+      <li><i class="fas fa-mobile-alt"></i> UX: Tailwind, Bootstrap, interactive UI</li>
+      <li><i class="fas fa-exchange-alt"></i> Real-time: WebSockets, Socket.IO</li>
+    </ul>
+  </div>
+
+  <!-- ********** ACHIEVEMENT BADGES / LOGIN FLOWS ETC ********** -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; background: #101d24; border-radius: 28px; padding: 1.5rem 2rem; margin: 1.8rem 0; border: 1px solid rgba(46,247,224,0.2);">
+    <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong style="color:white;">login & auth flows</strong> (3+ projects)</span>
+    <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong style="color:white;">admin dashboards</strong> (RBAC, metrics)</span>
+    <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong style="color:white;">database-driven features</strong></span>
+    <span><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong style="color:white;">API integrations</strong> (REST, AI)</span>
+  </div>
+
+  <!-- ********** FUTURE TRAJECTORY — DARK SIGNATURE ********** -->
+  <hr>
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
+    <div>
+      <span style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(145deg, #ffffff, #b3f0ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">⚡ continuously evolving</span>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem; max-width: 600px;">Actively mastering advanced full‑stack engineering – scalability, distributed systems & integrating smart technologies into traditional web ecosystems.</p>
+    </div>
+    <div style="background: #1c2e38; color: var(--accent); padding: 0.9rem 2rem; border-radius: 80px; font-weight: 700; border: 1px solid var(--accent);">
+      <i class="fas fa-arrow-right" style="color: var(--accent);"></i> future: AI‑native full‑stack
+    </div>
+  </div>
+  
+  <!-- ********** FOOTER with working links (dart) ********** -->
+  <div class="footer-note">
+    <span><i class="fas fa-code"></i> adil usman · dart portfolio cv · <a href="https://github.com/Adil-Usman" target="_blank">github</a></span>
+    <span><i class="fas fa-qrcode" style="color: var(--accent);"></i> <a href="https://adil-usman.github.io/showcase/" target="_blank">adilusman.dev/live</a></span>
+  </div>
+  
+  <div style="text-align: right; margin-top: 0.8rem; font-size: 0.7rem; color: #5f8895;">dark dart · socket.io ready · AI‑curious</div>
+  
+</div> <!-- end container -->
+</body>
+</html>
